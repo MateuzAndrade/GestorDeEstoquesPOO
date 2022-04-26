@@ -66,9 +66,8 @@ namespace GestorDeEstoquesPOO
                 }
                 else
                 {
-                    Console.WriteLine("ERRO");
+                    escolheuSair = true;
                 }
-                Console.Clear();
 
             }
 
