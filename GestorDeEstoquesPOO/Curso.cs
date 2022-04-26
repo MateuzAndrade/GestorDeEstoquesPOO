@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestorDeEstoquesPOO
 {
-    class Curso : Produto
+    class Curso : Produto, IEstoque
     {
         public string autor;
         private int vagas;
@@ -16,6 +16,24 @@ namespace GestorDeEstoquesPOO
             this.nome = nome;
             this.preco = preco;
             this.autor = autor;
+        }
+
+        public void Exibir()
+        {
+            Console.WriteLine($"" +
+                $"Nome: {nome}\n" +
+                $"Preço: {preco}\n" +
+                $"Vagas Restantes: {vagas}\n" +
+                $"Autor: {autor}");
+            Console.WriteLine("================================");
+        }
+
+        public void RegistrarEntrada()
+        {
+        }
+
+        public void RegistrarSaida()
+        {
         }
     }
 }

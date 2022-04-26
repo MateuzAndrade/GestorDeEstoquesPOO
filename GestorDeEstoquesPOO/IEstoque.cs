@@ -8,5 +8,8 @@ namespace GestorDeEstoquesPOO
 {
     internal interface IEstoque
     {
+        void Exibir();
+        void RegistrarEntrada();
+        void RegistrarSaida();
     }
 }

@@ -18,6 +18,14 @@ namespace GestorDeEstoquesPOO
             Sair
 
         }
+
+        enum MenuCadastroProduto
+        {
+            Produtofisico = 1,
+            Ebook,
+            Curso
+
+        }
         static void Main(string[] args)
         {
             bool escolheuSair = false;
@@ -71,6 +79,47 @@ namespace GestorDeEstoquesPOO
 
             }
 
+        }
+
+
+        static void Cadastro()
+        {
+            bool EscolheuSairCadastro = false;
+
+            while (!EscolheuSairCadastro)
+            {
+                Console.WriteLine("==============================");
+                Console.WriteLine("Cadstro de Produtos");
+                Console.WriteLine("==============================");
+
+                Console.WriteLine(
+                    "1 - Produto Físico\n" +
+                    "2 - Ebook\n" +
+                    "3 - Curso\n"
+                    );
+
+                string OpStr = Console.ReadLine();
+                int Opselec = int.Parse(OpStr);
+                MenuCadastroProduto Escolha = (MenuCadastroProduto)Opselec;
+
+                if (Opselec > 0 && Opselec < 3)
+                {
+                    switch (Escolha)
+                    {
+                        case MenuCadastroProduto.Produtofisico:
+                            break;
+                        case MenuCadastroProduto.Ebook:
+                            break;
+                        case MenuCadastroProduto.Curso:
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                g
+
+
+            }
 
         }
     }
