@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace GestorDeEstoquesPOO
 {
-    internal class Program
+    class Program
     {
+
+        static List<IEstoque> produtos = new List<IEstoque>();
         enum Menu
         {
             Listar = 1,
@@ -57,6 +59,7 @@ namespace GestorDeEstoquesPOO
                         case Menu.Listar:
                             break;
                         case Menu.Adicionar:
+                            Cadastro();
                             break;
                         case Menu.Remover:
                             break;
@@ -76,51 +79,85 @@ namespace GestorDeEstoquesPOO
                 {
                     escolheuSair = true;
                 }
-
+                Console.Clear();
             }
-
+            Console.Clear();
         }
-
 
         static void Cadastro()
         {
-            bool EscolheuSairCadastro = false;
+            Console.WriteLine("==============================");
+            Console.WriteLine("Cadstro de Produtos");
+            Console.WriteLine("==============================");
 
-            while (!EscolheuSairCadastro)
+            Console.WriteLine(
+                "1 - Produto Físico\n" +
+                "2 - Ebook\n" +
+                "3 - Curso\n"
+                );
+
+            string OpStr = Console.ReadLine();
+            int Opselec = int.Parse(OpStr);
+            MenuCadastroProduto Escolha = (MenuCadastroProduto)Opselec;
+
+            switch (Escolha)
             {
-                Console.WriteLine("==============================");
-                Console.WriteLine("Cadstro de Produtos");
-                Console.WriteLine("==============================");
-
-                Console.WriteLine(
-                    "1 - Produto Físico\n" +
-                    "2 - Ebook\n" +
-                    "3 - Curso\n"
-                    );
-
-                string OpStr = Console.ReadLine();
-                int Opselec = int.Parse(OpStr);
-                MenuCadastroProduto Escolha = (MenuCadastroProduto)Opselec;
-
-                if (Opselec > 0 && Opselec < 3)
-                {
-                    switch (Escolha)
-                    {
-                        case MenuCadastroProduto.Produtofisico:
-                            break;
-                        case MenuCadastroProduto.Ebook:
-                            break;
-                        case MenuCadastroProduto.Curso:
-                            break;
-                        default:
-                            break;
-                    }
-                }
-                g
-
-
+                case MenuCadastroProduto.Produtofisico:
+                    CadastrarPFisico();
+                    break;
+                case MenuCadastroProduto.Ebook:
+                    CadstrarEbook();
+                    break;
+                case MenuCadastroProduto.Curso:
+                    CadstrarCurso();
+                    break;
             }
-
+            Console.Clear();
         }
+        static void CadastrarPFisico()
+        {
+            Console.WriteLine("Cadastrando Produto Físico: ");
+            Console.WriteLine("Nome: ");
+            string nome = Console.ReadLine();
+            Console.WriteLine("Preço: ");
+            float preco = float.Parse(Console.ReadLine());
+            Console.WriteLine("Frete: ");
+            float frete = float.Parse(Console.ReadLine());
+
+            ProdutoFisico pf = new ProdutoFisico(nome, preco, frete);
+            produtos.Add(pf);
+        }
+
+        static void CadstrarEbook()
+        {
+            Console.WriteLine("Cadastrando EBook: ");
+            Console.WriteLine("Nome: ");
+            string nome = Console.ReadLine();
+            Console.WriteLine("Preço: ");
+            float preco = float.Parse(Console.ReadLine());
+            Console.WriteLine("Autor: ");
+            string autor = Console.ReadLine();
+
+            Ebook ebook = new Ebook(nome, preco, autor);
+            produtos.Add(ebook);
+        }
+
+        static void CadstrarCurso()
+        {
+            Console.WriteLine("Cadastrando Curso: ");
+            Console.WriteLine("Nome: ");
+            string nome = Console.ReadLine();
+            Console.WriteLine("Preço: ");
+            float preco = float.Parse(Console.ReadLine());
+            Console.WriteLine("Autor: ");
+            string autor = Console.ReadLine();
+            Console.WriteLine("Vagas: ");
+            int vagas = int.Parse(Console.ReadLine());
+
+            Curso cs = new Curso(nome, preco, autor, vagas);
+            produtos.Add(cs);
+        }
+
+
     }
 }

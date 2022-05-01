@@ -22,19 +22,18 @@ namespace GestorDeEstoquesPOO
         {
             Console.WriteLine($"" +
                 $"Nome: {nome}\n" +
-                $"Preço: {preco}\n" +
+                $"Preço: {autor}\n" +
                 $"Vendas: {vendas}\n" +
                 $"Autor: {autor}");
             Console.WriteLine("================================");
         }
-    }
+        public void RegistrarEntrada()
+        {
+        }
 
-    public void RegistrarEntrada()
-    {
-    }
-
-    public void RegistrarSaida()
-    {
+        public void RegistrarSaida()
+        {
+        }
     }
 }
-}
+
